@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'styles/styles.scss';
 
-import { Link, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import createHistory from 'history/createBrowserHistory';
@@ -15,6 +16,7 @@ import Main from 'components/Main';
 
 import DevTools from 'components/DevTools';
 import initialState from 'initialState';
+
 
 // Create a history of your choosing (we're using a browser history in this case)
 const history = createHistory();
@@ -38,13 +40,7 @@ const store = createStore(rootReducer,
 const component = (
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <div>
-        <ul>
-          <li><Link to='/resume'>Resume</Link></li>
-          <li><Link to='/project'>Project</Link></li>
-        </ul>
-
-        <hr/>
+      <div className='content cf'>
         <DevTools/>
         <Route exact component={Main} path='/' />
         <Route component={Project} path='/project' />

@@ -1,4 +1,4 @@
-global.Promise         = require('bluebird');
+// global.Promise         = require('bluebird');
 
 const webpack            = require('webpack');
 const path               = require('path');
@@ -67,7 +67,17 @@ module.exports = {
             {
               loader: 'postcss-loader'
             },
-            'sass-loader'
+            'sass-loader',
+            {
+              loader: 'sass-resources-loader',
+              options: {
+                resources: [
+                  './src/styles/_variables.scss',
+                  './src/styles/_mixins.scss',
+                  './src/styles/_media.scss'
+                ]
+              }
+            }
           ]
         })
       },

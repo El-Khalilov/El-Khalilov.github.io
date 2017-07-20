@@ -1,0 +1,15 @@
+@function em($pixels, $context: $fontSize) {
+  @return #{$pixels/$context}em;
+}
+
+@mixin container() {
+  max-width: map-get($breakpoints, 'desktop');
+
+  @include media(">=tablet") {
+    max-width: map-get($breakpoints, 'tablet');
+  }
+
+  @include media(">=desktop") {
+    max-width: map-get($breakpoints, 'desktop');
+  }
+}
