@@ -1,38 +1,73 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import RawHtml from 'react-raw-html';
-import { Grid, Row, Col } from 'react-flexbox-grid';
-
-import Box from './Box';
+import { Link } from 'react-router-dom';
+import { FaGithub, FaLinkedin } from 'react-icons/lib/fa';
+// import RawHtml from 'react-raw-html';
+import './Main.scss';
+// <div className='contacts' >
+//   <FaMapMarker  size={this.state.iconSize} />{this.props.location}
+// </div>
 
 const mapStateToProps = state => {
   return {
-    intro: state.intro
+    intro: state.intro,
+    position: state.position,
+    resume: state.resume,
+    contacts: state.contacts,
+    title: state.title,
+    location: state.location
   };
 };
 
-const Main = ({ intro }) => (
-  <Grid fluid>
-    <Row>
+class Main extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      iconSize: 20,
+      mounted: false
+    };
+  }
 
-      <Col md={6}>
-        <Box styleName='intro'>
-          <RawHtml.div>{intro}</RawHtml.div>
-        </Box>
-      </Col>
+  componentDidMount() {
+    this.setState({ mounted: true });
+  }
 
-      <Col md={6}>
-        <Box styleName='intro'>
-          <RawHtml.div>{intro}</RawHtml.div>
-        </Box>
-      </Col>
-    </Row>
-  </Grid>
-);
+  render() {
+    return (
+      <div className={`intro ${this.state.mounted ? 'mounted' : ''}`}>
+        <h1>{this.props.title}</h1>
+        <h3>{this.props.position} | {this.props.location}</h3>
+
+        <nav className='nav'>
+          <Link to='/about'>About</Link>
+          <Link to='/projects'>Projects</Link>
+          <a target='_blank' href={this.props.resume}>Resume</a>
+        </nav>
+
+        <div className='contacts' >
+          <a className='underline' href={`mailto:${this.props.contacts.email}`}>{this.props.contacts.email}</a>
+          <a className='underline' href={`tel:${this.props.contacts.phone}`}>{this.props.contacts.phone}</a>
+        </div>
+
+
+        <div className='socials'>
+          <a target='_blank'href={this.props.contacts.linkedin}><FaLinkedin  size={this.state.iconSize} /></a>
+          <a target='_blank'href={this.props.contacts.github}><FaGithub  size={this.state.iconSize} /></a>
+        </div>
+      </div>
+    );
+  }
+}
+
 
 Main.propTypes = {
-  intro: PropTypes.string
+  intro: PropTypes.string,
+  position: PropTypes.string,
+  resume: PropTypes.string,
+  contacts: PropTypes.object,
+  title: PropTypes.string,
+  location: PropTypes.string
 };
 
 export default connect(

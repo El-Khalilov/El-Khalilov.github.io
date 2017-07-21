@@ -13,3 +13,29 @@
     max-width: map-get($breakpoints, 'desktop');
   }
 }
+
+@mixin underline($color: $linkColor) {
+  position: relative;
+  transform: translate3d(0, 0, 0);
+  color: $color;
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    background: $color;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    display: block;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.4s cubic-bezier(0.75, 0, 0.175, 1);
+  }
+
+  &:hover::after {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+  }
+}

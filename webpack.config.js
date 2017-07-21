@@ -85,6 +85,7 @@ module.exports = {
       { test: /\.jpg$/, loader: 'url-loader?limit=10000&mimetype=image/jpg' },
       { test: /\.png$/, loader: 'url-loader?limit=10000&mimetype=image/png' },
       { test: /\.svg/, loader: 'url-loader?limit=26000&mimetype=image/svg+xml' },
+      { test: /\.pdf$/, loader: 'file?name=[name].[ext]' },
       { test: /\.(woff|woff2|ttf|eot)/, loader: 'url-loader?limit=1' },
       { test: /\.jsx?$/,
         loader: process.env.NODE_ENV !== 'production' ? 'react-hot-loader!babel-loader' : 'babel-loader',
