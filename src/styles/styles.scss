@@ -32,6 +32,10 @@ h6 {
   text-rendering: optimizelegibility;
   line-height: 1.2;
   color: $secondaryFontColor;
+
+  span {
+    color: $secondaryColor;
+  }
 }
 
 h1 {
@@ -94,8 +98,15 @@ a {
 .content {
   @include container();
 
+  background-color: $primaryColor;
+  min-height: 100vh;
   margin: 0 auto;
-  padding: 50px 30px 0;
+  padding: em(90px) em(50px);
+
+  h1 {
+    font-size: em(35px);
+    margin-bottom: 2em;
+  }
 }
 
 @keyframes blink {

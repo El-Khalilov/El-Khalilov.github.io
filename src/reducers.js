@@ -1,9 +1,0 @@
-export const title = (state = '') => state;
-export const intro = (state = '') => state;
-export const contacts = (state = '') => state;
-export const titles = (state = '') => state;
-export const websites = (state = []) => state;
-export const projects = (state = []) => state;
-export const resume = (state = []) => state;
-export const position = (state = []) => state;
-export const location = (state = []) => state;

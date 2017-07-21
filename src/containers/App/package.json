@@ -1,6 +1,6 @@
 {
-  "name": "Resume",
+  "name": "App",
   "version": "0.0.0",
   "private": true,
-  "main": "./Resume.jsx"
+  "main": "./App.jsx"
 }
