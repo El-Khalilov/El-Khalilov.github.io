@@ -1,0 +1,12 @@
+
+.nav {
+  margin: 20px 0 10px;
+
+  a {
+    @include underline();
+
+    display: inline-block;
+  }
+
+  a + a { margin-left: 20px; }
+}

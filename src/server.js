@@ -6,6 +6,7 @@ import express  from 'express';
 
 const app = express();
 
+app.use('/public', express.static('public'));
 app.use((req, res) => {
   // const componentHTML = ReactDom.renderToString(<App />);
 
@@ -15,7 +16,7 @@ app.use((req, res) => {
 
 const assetUrl = process.env.NODE_ENV !== 'production' ? 'http://localhost:8050' : '/';
 
-app.use(express.static(`${assetUrl}/public`));
+// app.use(express.static(`${assetUrl}/public`));
 
 
 function renderHTML() {

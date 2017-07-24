@@ -3,14 +3,16 @@
 }
 
 @mixin container() {
-  max-width: map-get($breakpoints, 'desktop');
-
-  @include media(">=tablet") {
-    max-width: map-get($breakpoints, 'tablet');
+  @include media(">=sm") {
+    max-width: map-get($breakpoints, 'sm');
   }
 
-  @include media(">=desktop") {
-    max-width: map-get($breakpoints, 'desktop');
+  @include media(">=md") {
+    max-width: map-get($breakpoints, 'md');
+  }
+
+  @include media(">=lg") {
+    max-width: map-get($breakpoints, 'lg');
   }
 }
 

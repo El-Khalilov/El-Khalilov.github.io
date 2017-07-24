@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,300i');
 @import "normalize.css";
+@import "grid.scss";
 
 html {
   font-size: 62.5%;
@@ -68,7 +69,7 @@ h6 {
   font-size: em(12px);
 }
 
-p { margin: 0 0 em(18px); }
+p { margin: 0 0 em(12px); }
 
 body {
   background-color: $bodyBg;
@@ -98,15 +99,31 @@ a {
 .content {
   @include container();
 
+  > .container { padding: 0; }
+
+  > .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   background-color: $primaryColor;
   min-height: 100vh;
   margin: 0 auto;
-  padding: em(90px) em(50px);
+  padding: em(60px) em(20px);
 
   h1 {
     font-size: em(35px);
     margin-bottom: 2em;
   }
+
+  @include media(">sm") {
+    padding: em(90px) em(50px);
+  }
+}
+
+.date {
+  font-style: italic;
+  color: $secondaryColor;
 }
 
 @keyframes blink {

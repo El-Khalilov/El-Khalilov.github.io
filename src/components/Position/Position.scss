@@ -1,0 +1,38 @@
+.position {
+  margin-bottom: em(40px);
+
+  a {
+    @include underline();
+  }
+}
+
+.pos-header {
+  @include media(">sm") {
+    display: flex;
+  }
+}
+
+.pos-project-list {
+  ul { margin: 0 0 10px; }
+
+  @include media(">sm") {
+    margin-left: 20px;
+  }
+}
+
+.pos-title {
+  h3 { margin-bottom: 5px; }
+  h4 { color: inherit; }
+}
+
+.pos-meta {
+  @include media(">sm") {
+    text-align: right;
+    margin-left: auto;
+  }
+}
+
+.pos-type {
+  font-style: italic;
+  color: $secondaryColor;
+}

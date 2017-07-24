@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { FaGithub, FaLinkedin } from 'react-icons/lib/fa';
+
+import Social from '../Social';
+import Nav from '../Nav';
+
 // import RawHtml from 'react-raw-html';
 import './Main.scss';
 // <div className='contacts' >
@@ -30,22 +32,14 @@ class Main extends React.Component {
         <h1>{personalInfo.name}</h1>
         <h3>{layout.position} | {personalInfo.location}</h3>
 
-        <nav className='nav'>
-          <Link to='/about'>About</Link>
-          <Link to='/projects'>Projects</Link>
-          <a target='_blank' href={personalInfo.resume}>Resume</a>
-        </nav>
+        <Nav items={layout.nav} />
 
         <div className='contacts' >
           <a className='underline' href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a>
           <a className='underline' href={`tel:${personalInfo.phone}`}>{personalInfo.phone}</a>
         </div>
 
-
-        <div className='socials'>
-          <a target='_blank'href={personalInfo.linkedin}><FaLinkedin  size={this.state.iconSize} /></a>
-          <a target='_blank'href={personalInfo.github}><FaGithub  size={this.state.iconSize} /></a>
-        </div>
+        <Social list = {personalInfo.social} />
       </div>
     );
   }

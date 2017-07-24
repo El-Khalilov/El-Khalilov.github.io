@@ -1,12 +1,34 @@
+import { personalInfoData } from './personalInfo';
+import PropTypes from 'prop-types';
+
+export const layoutTypes = PropTypes.shape({
+  intro: PropTypes.string.isRequired,
+  position: PropTypes.string.isRequired,
+  nav: PropTypes.array.isRequired
+});
+
 const layoutData = {
-  intro: `
+  'intro': `
     <p>Welcome to my online portfolio!</p>
   `,
-  position: 'Frontend Developer',
-  titles: {
-    projects: 'Projects',
-    web: 'Websites Development'
-  }
+  'position': 'Frontend Developer',
+  'nav': [
+    {
+      'type': 'route',
+      'title': 'About',
+      'url': '/about'
+    },
+    {
+      'type': 'route',
+      'title': 'Projects',
+      'url': '/projects'
+    },
+    {
+      'type': 'link',
+      'title': 'Resume',
+      'url': personalInfoData.resume
+    }
+  ]
 };
 
 export { layoutData };

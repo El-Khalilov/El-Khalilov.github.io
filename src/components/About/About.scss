@@ -1,0 +1,59 @@
+.about-page {
+  .socials a::after {
+    background: $bodyBg;
+  }
+
+  h1 span {
+    display: block;
+
+    @include media(">sm") {
+      display: inline;
+
+      &::before { content: '.'; }
+    }
+  }
+
+  .edu {
+    margin-bottom: em(20px);
+
+    h4,
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .sidebar .icon-link {
+    color: $linkColor;
+  }
+
+  .sidebar .section + .section {
+    margin-top: 40px;
+  }
+}
+
+.section {
+  h2 { text-transform: uppercase; }
+}
+
+.section + .section {
+  margin-top: em(40px);
+}
+
+.subSection {
+  margin-bottom: em(20px);
+
+  h4 { margin-bottom: 3px; }
+}
+
+.icon-link {
+  margin-bottom: 5px;
+
+  .fa {
+    color: $linkColor;
+    font-size: 1.2em;
+    margin-right: 15px;
+    display: inline-block;
+    min-width: 1em;
+  }
+}
