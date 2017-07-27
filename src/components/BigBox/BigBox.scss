@@ -1,0 +1,62 @@
+.box-big {
+  $moreBtnSize: 50px;
+
+  margin-bottom: $gridGap;
+
+  .img-container {
+    width: 100%;
+    margin-bottom: em(20px);
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @include media('>=lg') {
+      max-width: 40%;
+      margin-bottom: 0;
+    }
+  }
+
+  .box-inner {
+    position: relative;
+
+    @include media('>=lg') {
+      display: flex;
+    }
+  }
+
+  .box-content {
+    padding: em(20px);
+    padding-bottom: $moreBtnSize + 15px;
+
+    @include media('>=lg') {
+      flex: 1;
+    }
+  }
+
+  .box-content-header {
+    margin-bottom: em(20px);
+
+    > * {
+      margin-bottom: 5px;
+    }
+
+    @include media('>=sm') {
+      display: flex;
+
+      .date {
+        margin-left: auto;
+      }
+    }
+  }
+
+  .more-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    @include arrowBtn($moreBtnSize, 'right');
+  }
+}

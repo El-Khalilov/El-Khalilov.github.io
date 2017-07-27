@@ -1,0 +1,7 @@
+.projects-page {
+  background: none;
+
+  @include media(">sm") {
+    .nav { text-align: right; }
+  }
+}

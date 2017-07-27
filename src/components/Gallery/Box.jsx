@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Box.scss';
+import './Gallery.scss';
 
 
 const Box = ({ children, styleName }) => (
   <div className={`box ${ styleName }`}>
-    <div className='box-inner'>
-      {children}
-    </div>
+    {children}
   </div>
 );
 

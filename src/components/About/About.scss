@@ -32,20 +32,6 @@
   }
 }
 
-.section {
-  h2 { text-transform: uppercase; }
-}
-
-.section + .section {
-  margin-top: em(40px);
-}
-
-.subSection {
-  margin-bottom: em(20px);
-
-  h4 { margin-bottom: 3px; }
-}
-
 .icon-link {
   margin-bottom: 5px;
 

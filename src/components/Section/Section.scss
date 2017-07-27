@@ -1,0 +1,7 @@
+.section {
+  .section-title { text-transform: uppercase; }
+}
+
+.section + .section {
+  margin-top: em(50px);
+}

@@ -16,6 +16,56 @@
   }
 }
 
+@mixin btn() {
+  display: inline-block;
+  background: $secondaryColor;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  border: none;
+  padding: 5px 10px;
+  transition: color $ColorTransitionDuration;
+
+  &:hover {
+    text-decoration: none;
+    color: $secondaryFontColor;
+  }
+}
+
+@mixin arrowBtn($size: 50px, $dir: 'right') {
+  display: inline-block;
+  width: $size;
+  height: $size;
+  background: $secondaryColor;
+
+  &::after,
+  &:hover::after {
+    width: 40%;
+    height: 40%;
+    content: '';
+    top: 50%;
+    position: absolute;
+    border: 1px solid $primaryColor;
+    border-top-width: 0;
+    border-left-width: 0;
+    transition: border-color $ColorTransitionDuration;
+
+    @if $dir == 'right' {
+      left: 40%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    @else {
+      left: 60%;
+      transform: translate(-50%, -50%) rotate(135deg);
+    }
+  }
+
+  &:hover::after {
+    border-color: $secondaryFontColor;
+  }
+}
+
 @mixin underline($color: $linkColor) {
   position: relative;
   transform: translate3d(0, 0, 0);
@@ -36,8 +86,17 @@
     transition: transform 0.4s cubic-bezier(0.75, 0, 0.175, 1);
   }
 
-  &:hover::after {
+  &:hover::after,
+  &.active::after {
     transform-origin: bottom left;
     transform: scaleX(1);
   }
+
+  // &.active {
+  //   &::after {
+  //     display: none;
+  //   }
+  //
+  //   color: $secondaryColor;
+  // }
 }

@@ -1,6 +1,6 @@
 {
-  "name": "Box",
+  "name": "ImgBox",
   "version": "0.0.0",
   "private": true,
-  "main": "./Box.jsx"
+  "main": "./ImgBox.jsx"
 }

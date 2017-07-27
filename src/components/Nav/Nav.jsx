@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Nav.scss';
 
 const Nav = ({ items }) => {
@@ -8,7 +8,7 @@ const Nav = ({ items }) => {
     <nav className='nav'>
       {items.map((item, indx) => {
         if (item.type === 'route') {
-          return <Link key={indx} to={item.url}>{item.title}</Link>;
+          return <NavLink key={indx} to={item.url} activeClassName='active'>{item.title}</NavLink>;
         }
         return <a key={indx} target='_blank' href={item.url}>{item.title}</a>;
       }

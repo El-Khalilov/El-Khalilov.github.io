@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from '../reducers';
 import { createLogger } from 'redux-logger';
-import DevTools from '../components/DevTools';
+import DevTools from '../containers/DevTools';
 
 const logger = createLogger();
 

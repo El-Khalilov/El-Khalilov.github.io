@@ -1,17 +1,17 @@
 import React from 'react';
-import Section from './Section';
-import Subsection from './Subsection';
+import Section from '../Section';
+import Subsection from '../Subsection';
 import IconLink from './IconLink';
 import Position from '../Position';
 import './About.scss';
 import Social from '../Social';
+import Header from '../Header';
 import { personalInfoTypes } from '../../data/personalInfo';
-import { layoutTypes } from '../../data/layout';
 
-const About = ({ personalInfo, layout }) => {
+const About = ({ personalInfo }) => {
   return (
     <div className='content cf about-page'>
-      <h1>{personalInfo.name}<span>{layout.position}</span></h1>
+      <Header title={[personalInfo.name, <span key='position'>{personalInfo.position}</span>]} />
 
       <div className='container'>
         <div className='row'>
@@ -80,8 +80,7 @@ const About = ({ personalInfo, layout }) => {
 };
 
 About.propTypes = {
-  personalInfo: personalInfoTypes,
-  layout: layoutTypes
+  personalInfo: personalInfoTypes
 };
 
 export default About;

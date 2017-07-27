@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Social from '../Social';
-import Nav from '../Nav';
+import MainNav from '../../containers/MainNav';
 
 // import RawHtml from 'react-raw-html';
 import './Main.scss';
@@ -25,14 +25,14 @@ class Main extends React.Component {
   }
 
   render() {
-    const { personalInfo, layout } = this.props;
+    const { personalInfo } = this.props;
 
     return (
       <div className={`intro ${this.state.mounted ? 'mounted' : ''}`}>
         <h1>{personalInfo.name}</h1>
-        <h3>{layout.position} | {personalInfo.location}</h3>
+        <h3>{personalInfo.position} | {personalInfo.location}</h3>
 
-        <Nav items={layout.nav} />
+        <MainNav />
 
         <div className='contacts' >
           <a className='underline' href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a>
@@ -47,8 +47,7 @@ class Main extends React.Component {
 
 
 Main.propTypes = {
-  personalInfo: PropTypes.object,
-  layout: PropTypes.object
+  personalInfo: PropTypes.object
 };
 
 export default Main;

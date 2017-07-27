@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 export const layoutTypes = PropTypes.shape({
   intro: PropTypes.string.isRequired,
-  position: PropTypes.string.isRequired,
   nav: PropTypes.array.isRequired
 });
 
@@ -11,7 +10,6 @@ const layoutData = {
   'intro': `
     <p>Welcome to my online portfolio!</p>
   `,
-  'position': 'Frontend Developer',
   'nav': [
     {
       'type': 'route',

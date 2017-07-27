@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Subsection.scss';
 
 const Section = ({ children, title }) => {
   return (
-    <section className='section'>
-      {title && <h2>{title}</h2>}
+    <div className='subSection'>
+      {title && <h4 className='subsection-title'>{title}</h4>}
       {children}
-    </section>
+    </div>
   );
 };
 

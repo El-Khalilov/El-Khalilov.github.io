@@ -37,6 +37,7 @@
     "react-flexbox-grid": "^1.1.3",
     "react-raw-html": "^0.4.0",
     "react-redux": "^5.0.5",
+    "react-responsive-carousel": "^3.1.24",
     "react-router-config": "^1.0.0-beta.3",
     "react-router-dom": "^4.1.2",
     "react-router-redux": "^5.0.0-alpha.6",

@@ -21,6 +21,12 @@ html {
   box-sizing: border-box;
 }
 
+ul {
+  list-style: none;
+
+  &.bulletList { list-style: disc; }
+}
+
 h1,
 h2,
 h3,
@@ -69,6 +75,10 @@ h6 {
   font-size: em(12px);
 }
 
+article {
+  margin: 0 0 em(30px);
+}
+
 p { margin: 0 0 em(12px); }
 
 body {
@@ -82,19 +92,34 @@ body {
 a {
   color: $linkColor;
   text-decoration: none;
-  -webkit-transition: color 0.1s linear;
-  -moz-transition: color 0.1s linear;
-  -ms-transition: color 0.1s linear;
-  -o-transition: color 0.1s linear;
-  transition: color 0.1s linear;
   outline: none;
+  transition: color $ColorTransitionDuration linear;
 
   &:hover {
     text-decoration: none;
   }
 
   &.underline { @include underline(); }
+
+  &.secondaryLink:hover {
+    color: $secondaryColor;
+  }
 }
+
+figure {
+  margin: 0 auto 20px;
+  max-width: 100%;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.text-left { text-align: left; }
+
+.text-right { text-align: right; }
 
 .content {
   @include container();
@@ -121,9 +146,12 @@ a {
   }
 }
 
-.date {
-  font-style: italic;
-  color: $secondaryColor;
+.flex {
+  display: flex;
+}
+
+.btn {
+  @include btn();
 }
 
 @keyframes blink {

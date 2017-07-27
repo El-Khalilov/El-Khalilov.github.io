@@ -1,33 +1,37 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Route, BrowserRouter } from 'react-router-dom';
+import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import { ProjectsTypes } from '../../data/projects';
+import { personalInfoTypes } from '../../data/personalInfo';
 
 import About from '../../components/About';
-import Project from '../../components/Project';
+import Projects from '../../components/Projects';
+import ProjectContainer from '../ProjectContainer';
 import Main from '../../components/Main';
 
 
 class App extends Component {
   render() {
-    const { projects, layout, personalInfo } = this.props;
+    const { projects, personalInfo } = this.props;
 
     return (
       <BrowserRouter>
-        <div>
-          <Route exact render={props => (<Main  layout={layout} personalInfo={personalInfo} {...props}/>)} path='/' />
-          <Route render={props => (<About  layout={layout} personalInfo={personalInfo} {...props}/>)} path='/about' />
-          <Route render={props => (<Project  layout={layout} projects={projects} {...props}/>)} path='/project' />
-        </div>
+        <Switch>
+          <Route exact render={props => (<Main personalInfo={personalInfo} {...props}/>)} path='/' />
+          <Route exact render={props => (<About personalInfo={personalInfo} {...props}/>)} path='/about' />
+          <Route exact render={props => (<Projects projects={projects} {...props}/>)} path='/projects' />
+
+          <Route component={ProjectContainer} path='/projects/:id' />
+        </Switch>
       </BrowserRouter>
     );
   }
 }
 
 App.propTypes = {
-  projects: PropTypes.object.isRequired,
-  layout: PropTypes.object.isRequired,
-  personalInfo: PropTypes.object.isRequired
+  projects: ProjectsTypes,
+  personalInfo: personalInfoTypes
 };
 
 /**
@@ -38,7 +42,6 @@ App.propTypes = {
 function mapStateToProps(state) {
   return {
     projects: state.projects,
-    layout: state.layout,
     personalInfo: state.personalInfo
   };
 }

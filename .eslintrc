@@ -146,6 +146,7 @@
         "max-len": [2, 128, 4, {
             "ignoreUrls": true,
             "ignoreComments": false,
+            "ignoreStrings": true,
             "ignorePattern": "^\\s*(const|let|var)\\s+\\w+\\s+\\=\\s+\\/.*\\/(|i|g|m|ig|im|gm|igm);?$"
         }],
         "max-nested-callbacks": [2, 4],

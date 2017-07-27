@@ -1,0 +1,43 @@
+.dl-flex {
+  $titleWidthMobile: 35%;
+  $titleWidth: 30%;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 0;
+
+  dt {
+    padding: 2px 0;
+    flex: 0 0 $titleWidthMobile;
+    overflow: hidden;
+    color: $secondaryFontColor;
+  }
+
+  dd {
+    padding: 2px 0;
+    margin-left: 0;
+    flex: 100% - $titleWidthMobile 0 0;
+    padding-left: 10px;
+    max-width: 100% - $titleWidthMobile;
+  }
+
+  dd + dd {
+    margin-left: $titleWidthMobile;
+  }
+
+  @include media('>=sm') {
+    dt {
+      flex: 0 0 $titleWidth;
+    }
+
+    dd {
+      flex: 100% - $titleWidth 0 0;
+      max-width: 100% - $titleWidth;
+    }
+
+    dd + dd {
+      margin-left: $titleWidth;
+    }
+  }
+}

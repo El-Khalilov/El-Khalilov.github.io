@@ -2,6 +2,7 @@ import React from 'react';
 import './Position.scss';
 import { PositionTypes } from '../../data/personalInfo';
 import RawHtml from 'react-raw-html';
+import DateComponent from '../Date';
 
 const Position = ({ data }) => {
   return (
@@ -13,9 +14,7 @@ const Position = ({ data }) => {
         </div>
 
         <div className='pos-meta'>
-          <div className='date'>
-            {data.from} - {data.to}
-          </div>
+          <DateComponent date={`${data.from} - ${data.to}`} />
 
           <div className='pos-location'>
             {data.location}
@@ -29,7 +28,7 @@ const Position = ({ data }) => {
             {project.type && <div className='pos-type'>{project.type}</div>}
             {project.project && <div className='pos-project-name'><RawHtml.p>{project.project}</RawHtml.p></div>}
             {project.description.length &&
-              <ul>
+              <ul className='bulletList'>
                 {project.description.map((bullet, bIndx) => (
                   <RawHtml.li key={bIndx}>{bullet}</RawHtml.li>
                 ))}

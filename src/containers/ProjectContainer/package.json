@@ -1,0 +1,6 @@
+{
+  "name": "ProjectContainer",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ProjectContainer.jsx"
+}
