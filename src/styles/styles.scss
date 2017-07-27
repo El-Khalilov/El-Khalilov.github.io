@@ -85,8 +85,12 @@ body {
   background-color: $bodyBg;
   font-family: $fontFamily;
   color: $fontColor;
-  font-size: $fontSize;
+  font-size: $fontSizeMobile;
   line-height: 1.6;
+
+  @include media('>=sm') {
+    font-size: $fontSize;
+  }
 }
 
 a {
@@ -134,15 +138,19 @@ figure {
   background-color: $primaryColor;
   min-height: 100vh;
   margin: 0 auto;
-  padding: em(60px) em(20px);
+  padding: em(20px) em(20px);
 
   h1 {
-    font-size: em(35px);
     margin-bottom: 2em;
+    font-size: em(25px);
+
+    @include media('>=sm') {
+      font-size: em(35px);
+    }
   }
 
   @include media(">sm") {
-    padding: em(90px) em(50px);
+    padding: em(60px) em(50px);
   }
 }
 
