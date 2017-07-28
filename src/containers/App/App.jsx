@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import { ProjectsTypes } from '../../data/projects';
 import { personalInfoTypes } from '../../data/personalInfo';
@@ -9,7 +8,6 @@ import About from '../../components/About';
 import Projects from '../../components/Projects';
 import ProjectContainer from '../ProjectContainer';
 import Main from '../../components/Main';
-
 
 class App extends Component {
   render() {
