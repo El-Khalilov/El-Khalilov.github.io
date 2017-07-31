@@ -4,10 +4,11 @@ const webpack            = require('webpack');
 const path               = require('path');
 const ExtractTextPlugin  = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
-const publicPath         = 'http://localhost:8050/public/assets';
-const cssName            = process.env.NODE_ENV === 'production' ? 'styles-[hash].css' : 'styles.css';
-const jsName             = process.env.NODE_ENV === 'production' ? 'bundle-[hash].js' : 'bundle.js';
+const publicPath         = '/';
+const cssName            = process.env.NODE_ENV === 'production' ? 'assets/styles/[name]-[hash].css' : 'assets/styles/[name].css';
 
 
 const plugins = [
@@ -17,15 +18,35 @@ const plugins = [
       NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
     }
   }),
+  new webpack.optimize.UglifyJsPlugin({
+    sourceMap: true,
+    compress: {
+      warnings: false
+    }
+  }),
   new webpack.LoaderOptionsPlugin({
+    minimize: true,
     debug: process.env.NODE_ENV !== 'production'
   }),
-  new ExtractTextPlugin(cssName)
+  new ExtractTextPlugin(cssName),
+  new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: function (module) {
+         // this assumes your vendor imports exist in the node_modules directory
+         return module.context && module.context.indexOf('node_modules') !== -1;
+      }
+  }),
+  new HtmlWebpackPlugin({
+    template: path.join(__dirname, './src/index.html')
+  }),
+  new ScriptExtHtmlWebpackPlugin({
+    defaultAttribute: 'defer'
+  })
 ];
 
 if (process.env.NODE_ENV === 'production') {
   plugins.push(
-    new CleanWebpackPlugin([ 'public/assets/' ], {
+    new CleanWebpackPlugin([ 'dist/' ], {
       root: __dirname,
       verbose: true,
       dry: false
@@ -34,10 +55,12 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 module.exports = {
-  entry: ['babel-polyfill', './src/client.js'],
+  entry: {
+    'client': ['babel-polyfill', './src/client.js']
+  },
   output: {
-    path: path.resolve(__dirname, './public/assets/'),
-    filename: jsName,
+    path: path.resolve(__dirname, './dist'),
+    filename: process.env.NODE_ENV === 'production' ? 'assets/js/[name].[chunkhash].js' : 'assets/js/[name].js',
     publicPath
   },
   resolve: {
@@ -86,7 +109,14 @@ module.exports = {
       { test: /\.png$/, loader: 'url-loader?limit=10000&mimetype=image/png' },
       { test: /\.svg/, loader: 'url-loader?limit=26000&mimetype=image/svg+xml' },
       { test: /\.pdf$/, loader: 'file?name=[name].[ext]' },
-      { test: /\.(woff|woff2|ttf|eot)/, loader: 'url-loader?limit=1' },
+      {
+        test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+        loader: 'file-loader',
+        options: {
+          name: 'assets/fonts/[name].[ext]?[hash]',
+          publicPath: '/'
+        }
+      },
       { test: /\.jsx?$/,
         loader: process.env.NODE_ENV !== 'production' ? 'react-hot-loader!babel-loader' : 'babel-loader',
         exclude: [/node_modules/, /public/]
@@ -96,7 +126,8 @@ module.exports = {
   },
   plugins,
   devServer: {
-    headers: { 'Access-Control-Allow-Origin': '*' }
+    headers: { 'Access-Control-Allow-Origin': '*' },
+    historyApiFallback: true
   },
-  devtool: process.env.NODE_ENV !== 'production' ? 'source-map' : false
+  devtool: process.env.NODE_ENV !== 'production' ? '#eval-source-map' : false
 };
