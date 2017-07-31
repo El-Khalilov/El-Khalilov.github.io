@@ -66,7 +66,7 @@ const personalInfoData = {
       'projects'     : [
         {
           'type'        : 'Frontend/Backend Development',
-          'project'     : `<a target='_blank' href="http://gsd.uwaterloo.ca/claferwebtools">Web-Based Clafer Tools</a> project - tools for modeling, visualization
+          'project'     : `<a target='_blank' href="http://www.clafer.org/p/software.html">Web-Based Clafer Tools</a> - tools for modeling, visualization
             and exploration of variability models`,
           'description' : [
             `Performed frontend code refactoring and optimization, as well as
@@ -78,7 +78,7 @@ const personalInfoData = {
         },
         {
           'type'        : 'Software Development',
-          'project'     : `<a target='_blank' href="http://github.com/gsdlab/claferMPS">ClaferMPS</a> project - an IDE for modeling of Electric/Electronic
+          'project'     : `<a target='_blank' href="http://github.com/gsdlab/claferMPS">ClaferMPS</a> - an IDE for modeling of Electric/Electronic
             architectures in automotive domain`,
           'description' : [
             `Collaborated with other researchers to design and implement a DSL for

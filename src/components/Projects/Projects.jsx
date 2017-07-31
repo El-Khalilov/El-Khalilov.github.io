@@ -18,12 +18,12 @@ const Projects = ({ projects }) => (
       <Gallery>
         {projects.filter(p => p.type === 'app')
           .map((project, indx) => (
-            <BigBox key={indx} project={project} styleName='col-xs-12 col-md-6 col-lg-12' />
+            <BigBox key={indx} project={project} styleName='col-xs-12 col-sm-6 col-lg-4' />
           ))}
       </Gallery>
     </Section>
 
-    <Section title='Websites Development'>
+    <Section title='Websites Development / selected works'>
       <Gallery>
         {projects.filter(p => p.type === 'website')
           .map((project, indx) => (

@@ -12,28 +12,6 @@
       height: auto;
       display: block;
     }
-
-    @include media('>=lg') {
-      max-width: 40%;
-      margin-bottom: 0;
-    }
-  }
-
-  .box-inner {
-    position: relative;
-
-    @include media('>=lg') {
-      display: flex;
-    }
-  }
-
-  .box-content {
-    padding: em(20px);
-    padding-bottom: $moreBtnSize + 15px;
-
-    @include media('>=lg') {
-      flex: 1;
-    }
   }
 
   .box-content-header {
@@ -58,5 +36,35 @@
     right: 0;
 
     @include arrowBtn($moreBtnSize, 'right');
+  }
+
+  .box-content {
+    padding: em(20px);
+    padding-bottom: $moreBtnSize + 15px;
+  }
+
+  .box-inner {
+    position: relative;
+
+    @include media('>=md') {
+      height: 100%;
+    }
+  }
+
+  &.style-2 {
+    @include media('>=lg') {
+      .img-container {
+        max-width: 40%;
+        margin-bottom: 0;
+      }
+
+      .box-inner {
+        display: flex;
+      }
+
+      .box-content {
+        flex: 1;
+      }
+    }
   }
 }

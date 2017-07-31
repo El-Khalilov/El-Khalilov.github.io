@@ -12,7 +12,9 @@ const BigBox = ({ project, styleName }) => {
     <Box styleName={`box-big ${ styleName }`}>
       <div className='box-inner'>
         <div className='img-container'>
-          <img src={`${projectPath}/${project.thumb}`} alt=''/>
+          <Link to={`/projects/${project.id}`}>
+            <img src={`${projectPath}/${project.thumb}`} alt=''/>
+          </Link>
         </div>
 
         <div className='box-content'>

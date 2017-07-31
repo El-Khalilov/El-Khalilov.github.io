@@ -29,6 +29,14 @@ const Project = ({ project }) => {
     });
   }
 
+  if (project.source) {
+    rightMeta.push({
+      'title': 'Links',
+      'text': <a className = 'underline' href={project.source} target='_blank'>Source</a>
+    });
+  }
+
+
   return (
     <section className='content cf project-page'>
       <Header title={project.name} />
@@ -41,6 +49,9 @@ const Project = ({ project }) => {
             </div>
             <div className='col-xs-12 col-md-5'>
               <DList list={rightMeta}/>
+              {project.link &&
+                <p><a className = 'underline' href={project.link} target='_blank'>View Website</a></p>
+              }
             </div>
           </div>
         </div>
@@ -48,7 +59,7 @@ const Project = ({ project }) => {
 
       {project.description &&
         <Subsection title='Description'>
-          <div className='project-description'>
+          <div className='project-description secondaryLink'>
             <RawHtml.article>{project.description}</RawHtml.article>
           </div>
         </Subsection>
@@ -71,17 +82,29 @@ const Project = ({ project }) => {
       )}
 
       {project.slider &&
-        <Carousel  items = {
-          project.slider.map((slide) => `${projectPath}/${slide}`)
-        }
-        />
+        <div className='container-fluid'>
+          <div className='row center-lg'>
+            <div className='col-lg-10'>
+              <Carousel  items = {
+                project.slider.map((slide) => `${projectPath}/${slide}`)
+              }
+              />
+            </div>
+          </div>
+        </div>
       }
 
       {project.images &&
-        <div className='project-gallery'>
-          {project.images.map((img, indx) =>
-            <figure key={indx}><img src={`${projectPath}/${img}`} /></figure>
-          )}
+        <div className='container-fluid'>
+          <div className='row center-lg'>
+            <div className='col-lg-9'>
+              <div className='project-gallery'>
+                {project.images.map((img, indx) =>
+                  <figure key={indx}><img src={`${projectPath}/${img}`} /></figure>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
       }
 
