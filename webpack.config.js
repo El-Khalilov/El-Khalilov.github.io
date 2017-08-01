@@ -43,7 +43,7 @@ const plugins = [
 
 if (process.env.NODE_ENV === 'production') {
   plugins.push(
-    new CleanWebpackPlugin([ 'dist/' ], {
+    new CleanWebpackPlugin(['assets/', 'index.html'], {
       root: __dirname,
       verbose: true,
       dry: false
@@ -56,7 +56,7 @@ module.exports = {
     'client': ['babel-polyfill', './src/client.js']
   },
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, './'),
     filename: process.env.NODE_ENV === 'production' ? 'assets/js/[name].[chunkhash].js' : 'assets/js/[name].js',
     publicPath
   },
