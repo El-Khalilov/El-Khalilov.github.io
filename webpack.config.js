@@ -35,7 +35,7 @@ const plugins = [
     minChunks: (module) => module.context && module.context.indexOf('node_modules') !== -1
   }),
   new FaviconsWebpackPlugin({
-    logo: './src/images/favicon-min.png',
+    logo: './src/images/favicon.png',
     prefix: 'assets/images/favicon/',
     title: 'portfolio',
     background: '#23262c'
