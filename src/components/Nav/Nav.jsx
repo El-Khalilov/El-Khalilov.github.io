@@ -10,7 +10,10 @@ const Nav = ({ items }) => {
         if (item.type === 'route') {
           return <NavLink key={indx} to={item.url} activeClassName='active'>{item.title}</NavLink>;
         }
-        return <a key={indx} target='_blank' href={item.url}>{item.title}</a>;
+        return (
+          <a key={indx}
+            target='_blank' rel='noopener' href={item.url}
+          >{item.title}</a>);
       }
       )}
     </nav>

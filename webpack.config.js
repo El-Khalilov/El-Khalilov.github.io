@@ -6,6 +6,7 @@ const ExtractTextPlugin  = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 const publicPath         = '/';
 const cssName            = process.env.NODE_ENV === 'production' ? 'assets/styles/[name]-[hash].css' : 'assets/styles/[name].css';
@@ -32,6 +33,12 @@ const plugins = [
   new webpack.optimize.CommonsChunkPlugin({
     name: 'vendor',
     minChunks: (module) => module.context && module.context.indexOf('node_modules') !== -1
+  }),
+  new FaviconsWebpackPlugin({
+    logo: './src/images/favicon-min.png',
+    prefix: 'assets/images/favicon/',
+    title: 'portfolio',
+    background: '#23262c'
   }),
   new HtmlWebpackPlugin({
     template: path.join(__dirname, './src/index.html')

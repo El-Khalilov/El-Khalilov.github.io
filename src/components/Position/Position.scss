@@ -7,8 +7,11 @@
 }
 
 .pos-header {
+  margin-bottom: 15px;
+
   @include media(">sm") {
     display: flex;
+    margin-bottom: 0;
   }
 }
 
