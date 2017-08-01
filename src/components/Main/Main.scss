@@ -4,7 +4,7 @@
 
   position: absolute;
   left: 15%;
-  top: 50%;
+  top: 50vh;
   transform: translate(0, -50%);
   max-width: 800px;
 
@@ -17,7 +17,7 @@
     left: -11px;
     opacity: 0;
     transition: width $animationDur, height $animationDur, opacity $animationDur/2;
-    transition-delay: 1.2s;
+    transition-delay: 0.2s;
   }
 
   &.mounted::after {

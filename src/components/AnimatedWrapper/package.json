@@ -1,0 +1,6 @@
+{
+  "name": "AnimatedWrapper",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./AnimatedWrapper.jsx"
+}

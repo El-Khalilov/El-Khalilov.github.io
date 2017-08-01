@@ -3,38 +3,37 @@ import { connect } from 'react-redux';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import { ProjectsTypes } from '../../data/projects';
 import { personalInfoTypes } from '../../data/personalInfo';
-
-//import Async from 'react-code-splitting';
+import TransitionGroup from 'react-transition-group/TransitionGroup';
 
 import About from '../../components/About';
 import Projects from '../../components/Projects';
 import ProjectContainer from '../ProjectContainer';
 import Main from '../../components/Main';
-
+import AnimatedWrapper from '../../components/AnimatedWrapper';
+import ScrollToTop from '../../components/ScrollToTop';
 
 class App extends Component {
   render() {
     const { projects, personalInfo } = this.props;
-
-    // const About = (props) => <Async load={import('../../components/About')} componentProps={{ personalInfo, ...props }} />
-    // const Projects = (props) => <Async load={import('../../components/Projects')} componentProps={{ projects, ...props }} />
-    // const ProjectContainer = (props) => <Async load={import('../ProjectContainer')} componentProps={props} />
-    // const Main = (props) => <Async load={import('../../components/Main')} componentProps={{ personalInfo, ...props }}/>
+    const AnimatedSwitch = AnimatedWrapper(Switch);
 
     return (
       <BrowserRouter>
-        <Switch>
-          // <Route exact render={props => (<Main personalInfo={personalInfo} {...props}/>)} path='/' />
-          // <Route exact render={props => (<About personalInfo={personalInfo} {...props}/>)} path='/about' />
-          // <Route exact render={props => (<Projects projects={projects} {...props}/>)} path='/projects' />
-          //
-          // <Route component={ProjectContainer} path='/projects/:id' />
-          <Route exact component={Main} path='/' />
-          <Route exact component={About} path='/about' />
-          <Route exact component={Projects} path='/projects' />
+        <ScrollToTop>
+          <Route render={({ location }) => (
+            <TransitionGroup>
+              <AnimatedSwitch key={location.key} location={location}>
+                <Route exact render={props => (<Main personalInfo={personalInfo} {...props}/>)} path='/' />
+                <Route exact render={props => (<About personalInfo={personalInfo} {...props}/>)} path='/about' />
+                <Route exact render={props => (<Projects projects={projects} {...props}/>)} path='/projects' />
 
-          <Route component={ProjectContainer} path='/projects/:id' />
-        </Switch>
+                <Route component={ProjectContainer} path='/projects/:id' />
+              </AnimatedSwitch>
+            </TransitionGroup>
+          )}
+          />
+        </ScrollToTop>
+
       </BrowserRouter>
     );
   }

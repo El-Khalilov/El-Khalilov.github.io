@@ -21,8 +21,9 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    setTimeout(()=>this.setState({ mounted: true }), 1000);
-
+    setTimeout(() => {
+      this.setState({ mounted: true });
+    }, 300);
   }
 
   render() {
