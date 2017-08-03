@@ -7,9 +7,6 @@ export const layoutTypes = PropTypes.shape({
 });
 
 const layoutData = {
-  'intro': `
-    <p>Welcome to my online portfolio!</p>
-  `,
   'nav': [
     {
       'type': 'route',

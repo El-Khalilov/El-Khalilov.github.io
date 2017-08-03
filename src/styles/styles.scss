@@ -168,37 +168,6 @@ figure {
   100% { opacity: 1; }
 }
 
-.animated-page-enter-active,
-.animated-page-leave-active {
-  transition: all 500ms;
-}
-
-.animated-page-enter {
-  opacity: 0;
-  visibility: hidden;
-  height: 0;
-  transform: translate(40px, 0);
-}
-
-.animated-page-enter.animated-page-enter-active {
-  opacity: 1;
-  visibility: visible;
-  height: auto;
-  transform: translate(0, 0);
-}
-
-.animated-page-leave {
-  transform: translate(0, 0);
-  opacity: 1;
-  visibility: visible;
-}
-
-.animated-page-leave.animated-page-leave-active {
-  transform: translate(-40px, 0);
-  opacity: 0;
-  visibility: visible;
-}
-
 // .slide-enter {
 //   opacity: 0;
 //

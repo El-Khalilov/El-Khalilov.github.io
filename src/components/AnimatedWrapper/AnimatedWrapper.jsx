@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './AnimatedWrapper.scss';
 
 const AnimatedWrapperComponent = WrappedComponent => class AnimatedWrapper extends Component {
   constructor(props) {

@@ -1,14 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import Social from '../Social';
 import MainNav from '../../containers/MainNav';
-
-// import RawHtml from 'react-raw-html';
 import './Main.scss';
-// <div className='contacts' >
-//   <FaMapMarker  size={this.state.iconSize} />{this.props.location}
-// </div>
+
 
 class Main extends React.Component {
   constructor(props) {
@@ -36,9 +31,9 @@ class Main extends React.Component {
 
         <MainNav />
 
-        <div className='contacts' >
-          <a className='underline' href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a>
-          <a className='underline' href={`tel:${personalInfo.phone}`}>{personalInfo.phone}</a>
+        <div className='contacts underline' >
+          <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a>
+          <a href={`tel:${personalInfo.phone}`}>{personalInfo.phone}</a>
         </div>
 
         <Social list = {personalInfo.social} />

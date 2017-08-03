@@ -9,6 +9,7 @@ import About from '../../components/About';
 import Projects from '../../components/Projects';
 import ProjectContainer from '../ProjectContainer';
 import Main from '../../components/Main';
+import NotFound from '../../components/NotFound';
 import AnimatedWrapper from '../../components/AnimatedWrapper';
 import ScrollToTop from '../../components/ScrollToTop';
 
@@ -26,8 +27,8 @@ class App extends Component {
                 <Route exact render={props => (<Main personalInfo={personalInfo} {...props}/>)} path='/' />
                 <Route exact render={props => (<About personalInfo={personalInfo} {...props}/>)} path='/about' />
                 <Route exact render={props => (<Projects projects={projects} {...props}/>)} path='/projects' />
-
                 <Route component={ProjectContainer} path='/projects/:id' />
+                <Route component={NotFound} path='*' />
               </AnimatedSwitch>
             </TransitionGroup>
           )}
@@ -44,11 +45,6 @@ App.propTypes = {
   personalInfo: personalInfoTypes
 };
 
-/**
- * Keep in mind that 'state' isn't the state of local object, but your single
- * state in this Redux application. 'counter' is a property within our store/state
- * object. By mapping it to props, we can pass it to the child component Counter.
- */
 function mapStateToProps(state) {
   return {
     projects: state.projects,

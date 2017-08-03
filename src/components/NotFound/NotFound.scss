@@ -1,0 +1,20 @@
+.page-404 {
+  position: absolute;
+  left: 15%;
+  top: 50vh;
+  transform: translate(0, -50%);
+  color: $secondaryFontColor;
+
+  h1 {
+    font-size: em(70px);
+
+    span {
+      color: inherit;
+      margin-left: 20px;
+    }
+  }
+
+  h2 {
+    font-size: em(50px);
+  }
+}
