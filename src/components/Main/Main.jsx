@@ -27,7 +27,7 @@ class Main extends React.Component {
     return (
       <div className={`intro ${this.state.mounted ? 'mounted' : ''}`}>
         <h1>{personalInfo.name}</h1>
-        <h3>{personalInfo.position} | {personalInfo.location}</h3>
+        <h3>{personalInfo.position}</h3>
 
         <MainNav />
 

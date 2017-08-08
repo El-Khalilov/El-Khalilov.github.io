@@ -1,7 +1,7 @@
 import React from 'react';
 import DList from '../DescriptionList';
 import DateComponent from '../Date';
-import { ProjectTypes } from '../../data/projects';
+import { ProjectTypes } from '../../reducers/propTypes';
 import Subsection from '../Subsection';
 import Header from '../Header';
 import RawHtml from 'react-raw-html';

@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Nav from '../../components/Nav';
+import { layoutTypes } from '../../reducers/propTypes';
 
 const MainNav = (props) => {
   const { layout } = props;
@@ -12,7 +12,7 @@ const MainNav = (props) => {
 };
 
 MainNav.propTypes = {
-  layout: PropTypes.object.isRequired
+  layout: layoutTypes
 };
 
 function mapStateToProps(state) {

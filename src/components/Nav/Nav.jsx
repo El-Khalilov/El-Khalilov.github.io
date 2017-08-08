@@ -8,7 +8,13 @@ const Nav = ({ items }) => {
     <nav className='nav'>
       {items.map((item, indx) => {
         if (item.type === 'route') {
-          return <NavLink key={indx} to={item.url} activeClassName='active'>{item.title}</NavLink>;
+          return (
+            <NavLink
+              exact
+              key={indx}
+              to={item.url}
+              activeClassName='active'
+            >{item.title}</NavLink>);
         }
         return (
           <a key={indx}

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Position.scss';
-import { PositionTypes } from '../../data/personalInfo';
+import { PositionTypes } from '../../reducers/propTypes';
 import RawHtml from 'react-raw-html';
 import DateComponent from '../Date';
 

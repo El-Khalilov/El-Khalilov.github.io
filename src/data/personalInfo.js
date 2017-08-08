@@ -1,10 +1,9 @@
-import PropTypes from 'prop-types';
-
 const personalInfoData = {
   'name': 'Eldar Khalilov',
   'location': 'Waterloo, ON, Canada',
   'resume': 'public/Eldar_Khalilov_resume.pdf',
   'position': 'Frontend Developer',
+  'relocate': 'Free to relocate',
   'scholar': 'https://scholar.google.ca/citations?user=3SYhjgkAAAAJ&hl=en&oi=sra',
   'social': {
     'linkedin': 'https://www.linkedin.com/in/ekhalilov/',
@@ -142,40 +141,5 @@ const personalInfoData = {
     }
   ]
 };
-
-export const EducationTypes = PropTypes.shape({
-  title: PropTypes.string.isRequired,
-  university: PropTypes.string.isRequired,
-  from: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired
-});
-
-export const PositionTypes = PropTypes.shape({
-  position: PropTypes.string.isRequired,
-  company: PropTypes.string.isRequired,
-  from: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  projects: PropTypes.arrayOf(PropTypes.shape({
-    type: PropTypes.string,
-    project: PropTypes.string,
-    description: PropTypes.arrayOf(PropTypes.string).isRequired
-  })).isRequired
-});
-
-export const personalInfoTypes = PropTypes.shape({
-  name: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  resume:  PropTypes.string.isRequired,
-  position: PropTypes.string.isRequired,
-  scholar: PropTypes.string.isRequired,
-  social:  PropTypes.object.isRequired,
-  phone:  PropTypes.string.isRequired,
-  email:  PropTypes.string.isRequired,
-  planguages: PropTypes.arrayOf(PropTypes.string).isRequired,
-  libraries: PropTypes.arrayOf(PropTypes.string).isRequired,
-  education: PropTypes.arrayOf(EducationTypes).isRequired,
-  experience: PropTypes.arrayOf(PositionTypes).isRequired
-});
 
 export { personalInfoData };

@@ -6,7 +6,7 @@ import Position from '../Position';
 import './About.scss';
 import Social from '../Social';
 import Header from '../Header';
-import { personalInfoTypes } from '../../data/personalInfo';
+import { personalInfoTypes } from '../../reducers/propTypes';
 
 const About = ({ personalInfo }) => {
   return (
@@ -24,6 +24,10 @@ const About = ({ personalInfo }) => {
                     <IconLink
                       icon = 'map-marker'
                       text =  {personalInfo.location}
+                    />
+                    <IconLink
+                      icon = 'plane'
+                      text =  {personalInfo.relocate}
                     />
                     <IconLink
                       icon = 'envelope'

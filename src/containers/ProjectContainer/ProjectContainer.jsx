@@ -2,11 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Project from '../../components/Project';
+import NotFound from '../../components/NotFound';
 
 const ProjectContainer = ({ project }) => {
-  return (
-    <Project project={project} />
-  );
+  if (project !== undefined) {
+    return <Project project={project} />;
+  }
+
+  return <NotFound/>;
 };
 
 const mapStateToProps = (state, ownProps) => ({
@@ -14,7 +17,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 ProjectContainer.propTypes = {
-  project: PropTypes.object.isRequired
+  project: PropTypes.object
 };
 
 export default connect(

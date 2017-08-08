@@ -1,10 +1,4 @@
 import { personalInfoData } from './personalInfo';
-import PropTypes from 'prop-types';
-
-export const layoutTypes = PropTypes.shape({
-  intro: PropTypes.string.isRequired,
-  nav: PropTypes.array.isRequired
-});
 
 const layoutData = {
   'nav': [

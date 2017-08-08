@@ -1,7 +1,7 @@
 import React from 'react';
 import './Projects.scss';
 
-import { ProjectsTypes } from '../../data/projects';
+import { ProjectsTypes } from '../../reducers/propTypes';
 
 import Header from '../Header';
 import ImgBox from '../ImgBox';

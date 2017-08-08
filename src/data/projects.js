@@ -1,27 +1,3 @@
-import PropTypes from 'prop-types';
-
-export const ProjectTypes = PropTypes.shape({
-  'type': PropTypes.string.isRequired,
-  'id': PropTypes.string.isRequired,
-  'name': PropTypes.string.isRequired,
-  'short_description': PropTypes.string,
-  'description': PropTypes.string,
-  'date': PropTypes.string.isRequired,
-  'technologies': PropTypes.arrayOf(PropTypes.string).isRequired,
-  'authors': PropTypes.arrayOf(PropTypes.string),
-  'source': PropTypes.string,
-  'publications': PropTypes.arrayOf(PropTypes.shape({
-    'title': PropTypes.string.isRequired,
-    'url': PropTypes.string.isRequired
-  })),
-  'slider': PropTypes.arrayOf(PropTypes.string),
-  'contribution': PropTypes.string,
-  'link': PropTypes.string,
-  'images': PropTypes.arrayOf(PropTypes.string)
-});
-
-export const ProjectsTypes = PropTypes.arrayOf(ProjectTypes);
-
 const projectsData = [
   {
     'type': 'app',

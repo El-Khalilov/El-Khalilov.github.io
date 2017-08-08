@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
-import { ProjectsTypes } from '../../data/projects';
-import { personalInfoTypes } from '../../data/personalInfo';
+import { personalInfoTypes, ProjectsTypes } from '../../reducers/propTypes';
 import TransitionGroup from 'react-transition-group/TransitionGroup';
 
 import About from '../../components/About';
@@ -28,6 +27,7 @@ class App extends Component {
                 <Route exact render={props => (<About personalInfo={personalInfo} {...props}/>)} path='/about' />
                 <Route exact render={props => (<Projects projects={projects} {...props}/>)} path='/projects' />
                 <Route component={ProjectContainer} path='/projects/:id' />
+                <Route component={NotFound} path='/projects/*' />
                 <Route component={NotFound} path='*' />
               </AnimatedSwitch>
             </TransitionGroup>
